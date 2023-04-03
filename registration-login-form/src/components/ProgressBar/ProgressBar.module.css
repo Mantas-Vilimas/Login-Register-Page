@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.progress {
+    width: 100%;
+    background-color: white;
+}
+
+.last {
+    width: 100%;
+}
+.empty {
+    width: 100%;
+    background-color: #023047;
+}
+
+.bar1 {
+    border-radius: 10px 0 0 10px;
+    border-top: 1px solid lightgray;
+    border-left: 20px solid #023047;
+    border-bottom: 1px solid lightgray;
+}
+
+.bar2 {
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    border-radius: 0 10px 10px 0;
+}
+
+.white {
+    color: white;
+    
+}
+
+.black {
+   color: black
+}

@@ -1,0 +1,31 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    outline: red;
+    border: 1px solid red;
+    background-color: rgb(255, 0, 0, 0.1);
+}
+
+
+.message {
+    color: red;
+    font-size: 12px;
+    font-family: monospace, arial;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    font-weight: bold;
+    font-family: monospace, arial;
+    box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.1);
+}
+
+.label {
+    font-family: monospace, arial;
+}
+

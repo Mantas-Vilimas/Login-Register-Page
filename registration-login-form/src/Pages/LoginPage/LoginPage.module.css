@@ -1,0 +1,22 @@
+.error {
+    color: red;
+    margin: 10px 0
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    margin-bottom: -4px;
+    width: 350px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

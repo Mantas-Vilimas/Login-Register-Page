@@ -1,0 +1,26 @@
+.label {
+    font-family: monospace, arial;
+    font-weight: bold;
+}
+
+.label span {
+    font-weight: normal;
+}
+
+.error {
+    color: red;
+    font-family: monospace, arial;
+
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    margin-bottom: -4px;
+    width: 350px;
+}

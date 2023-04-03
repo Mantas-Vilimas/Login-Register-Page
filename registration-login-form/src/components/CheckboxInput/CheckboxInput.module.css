@@ -1,0 +1,37 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.error {
+    outline: red;
+    border: 1px solid red;
+    background-color: rgb(255, 0, 0, 0.2);
+}
+
+
+.message {
+    color: red;
+    font-size: 12px;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    font-weight: bold;
+    font-family: monospace, arial;
+    
+}
+
+.link {
+    text-decoration:  none;
+    color: black;
+    font-family: monospace, arial;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+.label {
+    margin-bottom: 5px;
+}

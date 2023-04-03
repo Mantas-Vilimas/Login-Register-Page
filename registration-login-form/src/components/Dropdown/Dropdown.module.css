@@ -1,0 +1,20 @@
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    
+    
+
+}
+
+.input {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    font-family: monospace, arial;
+    box-shadow: 3px 3px 5px -3px rgba(0,0,0,0.1);
+}
+
+.label {
+    font-family: monospace, arial;
+}

@@ -1,0 +1,8 @@
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 10px;
+    background: #023047
+}
