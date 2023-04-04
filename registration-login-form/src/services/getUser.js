@@ -1,7 +1,7 @@
 import { LIST } from "../utils/routes";
 import Cookies from "js-cookie";
 
-export const getList = () => {
+export const getUser = () => {
   const token = Cookies.get("_user_token");
 
   return fetch(LIST, {

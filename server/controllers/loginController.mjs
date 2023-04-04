@@ -24,7 +24,7 @@ export const loginController = async (req, res) => {
   const isPasswordMatch = await comparePassword(password, user.password);
   if (!isPasswordMatch) {
     res.status(403).json({
-      message: "passwords do not match",
+      message: "incorrect password",
     });
     return;
   }

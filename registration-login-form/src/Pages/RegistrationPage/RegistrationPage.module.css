@@ -23,8 +23,9 @@
 }
 
 .image {
+    width: 100%;
+    max-width: 350px;
     margin-bottom: -4px;
-    width: 350px;
 }
 
 .buttons {

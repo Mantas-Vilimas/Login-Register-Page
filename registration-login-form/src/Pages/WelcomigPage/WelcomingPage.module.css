@@ -7,6 +7,12 @@
     font-family: monospace, arial;
 }
 
+.typewriter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .typewriter h1 {
     font-size: 42px;
@@ -32,12 +38,14 @@
     50% { border-color: #E87A00 }
   }
 
+
   .container {
     color: white;
   }
 
   .image {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
   }
 
   .content {
@@ -45,4 +53,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  @media screen and (max-width: 740px) {
+      .wrapper {
+        flex-direction: column;
+        gap: 50px
+      }
+
+      .typewriter h1 {
+        white-space: break-spaces; 
+      }
   }

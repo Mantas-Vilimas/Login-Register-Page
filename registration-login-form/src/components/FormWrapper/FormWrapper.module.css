@@ -2,6 +2,13 @@
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width: 500px;
-    min-width: 250px;
+    width: 100%;
+    max-width: 550px;
+    min-width: 230px;
+}
+
+@media screen and (min-width: 740px)  {
+    .wrapper {
+        min-width: 480px;
+    }
 }

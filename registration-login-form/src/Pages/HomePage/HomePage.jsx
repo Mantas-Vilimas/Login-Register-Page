@@ -4,7 +4,7 @@ import Button from "../../components/Button/Button";
 import FormWrapper from "../../components/FormWrapper/FormWrapper";
 import Heading from "../../components/Heading/Heading";
 import styles from "./HomePage.module.css";
-import { getList } from "../../services/getUser";
+import { getUser } from "../../services/getUser";
 import Spinner from "../../components/Spinner/Spinner";
 import image from "./home.png";
 
@@ -25,18 +25,22 @@ const HomePage = ({ logOut, token }) => {
   };
 
   const showUserinfo = async () => {
-    setLoading(true);
-    try {
-      const userFromServer = await getList();
-      setUserData(userFromServer);
-      setVisibility(true);
-      setError("");
-    } catch (error) {
-      setVisibility(false);
-      setUserData("");
-      setError("Can not get your info from server Sorry");
+    if (!token) {
+      return <Navigate to="/login" />;
+    } else {
+      setLoading(true);
+      try {
+        const userFromServer = await getUser();
+        setUserData(userFromServer);
+        setVisibility(true);
+        setError("");
+      } catch (error) {
+        setVisibility(false);
+        setUserData("");
+        setError("Can not get your info from server, Sorry. Try again later");
+      }
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -58,7 +62,7 @@ const HomePage = ({ logOut, token }) => {
 
           {loading && <Spinner />}
           {visibility ? (
-            <div>
+            <div className={styles.container}>
               <div>
                 <p className={styles.label}>
                   Your Email: <span>{userData.email}</span>
