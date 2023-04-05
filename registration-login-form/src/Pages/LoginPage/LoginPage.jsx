@@ -1,15 +1,22 @@
+// --------HOOKS-----------
 import { useForm } from "react-hook-form";
-import Input from "../../components/Input/Input";
+
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Button from "../../components/Button/Button";
-import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../services/loginUser";
 import { useEffect, useState } from "react";
+
+// --------COMPONENTS-----------
+import Button from "../../components/Button/Button";
+import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
+import Input from "../../components/Input/Input";
 import FormWrapper from "../../components/FormWrapper/FormWrapper";
 import Container from "../../components/Container/Container";
 import Heading from "../../components/Heading/Heading";
+import FlexWrapper from "../../components/FlexWrapper/FlexWrapper";
+
+// --------STYLE-----------
 import styles from "./LoginPage.module.css";
 import image from "./login.png";
 
@@ -48,7 +55,7 @@ const LoginPage = ({ onLogin }) => {
   }, [loginError]);
 
   return (
-    <div className={styles.wrapper}>
+    <FlexWrapper>
       <div>
         <img className={styles.image} src={image} alt="loginimage" />
       </div>
@@ -107,15 +114,15 @@ const LoginPage = ({ onLogin }) => {
             )}
 
             <div>or</div>
-            <div className={styles.container}>
+            <FlexWrapper>
               <Link className="navigation-link" to={"/register"}>
                 {"Register"}
               </Link>
-            </div>
+            </FlexWrapper>
           </form>
         </div>
       </FormWrapper>
-    </div>
+    </FlexWrapper>
   );
 };
 

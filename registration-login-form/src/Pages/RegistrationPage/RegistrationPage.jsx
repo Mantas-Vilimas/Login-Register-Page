@@ -1,20 +1,26 @@
-import Button from "../../components/Button/Button";
+// --------HOOKS-----------
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Input from "../../components/Input/Input";
-import Dropdown from "../../components/Dropdown/Dropdown";
 import * as yup from "yup";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../../services/registerUser";
 import { useEffect, useState } from "react";
+
+// --------COMPONENTS-----------
+import Button from "../../components/Button/Button";
+import Input from "../../components/Input/Input";
+import Dropdown from "../../components/Dropdown/Dropdown";
 import FormWrapper from "../../components/FormWrapper/FormWrapper";
 import Container from "../../components/Container/Container";
 import CheckboxInput from "../../components/CheckboxInput/CheckboxInput";
 import Heading from "../../components/Heading/Heading";
-import styles from "./RegistrationPage.module.css";
 import ProgressBar from "../../components/ProgressBar/Progressbar";
-import image from "./register.png";
 import ButtonLoader from "../../components/ButtonLoader/ButtonLoader";
+import FlexWrapper from "../../components/FlexWrapper/FlexWrapper";
+
+// --------Styles-----------
+import styles from "./RegistrationPage.module.css";
+import image from "./register.png";
 
 const schema1 = yup.object({
   email: yup
@@ -93,7 +99,7 @@ const RegistrationPage = () => {
   }, [errorMessage]);
 
   return (
-    <div className={styles.wrapper}>
+    <FlexWrapper>
       <div>
         <img className={styles.image} src={image} alt="register" />
       </div>
@@ -269,7 +275,7 @@ const RegistrationPage = () => {
                   </div>
                 </section>
               )}
-              <div className={styles.separator}> or </div>
+              <div> or </div>
               <div className={styles.linkContainer}>
                 <Link className="navigation-link" to={"/login"}>
                   {"Login"}
@@ -279,7 +285,7 @@ const RegistrationPage = () => {
           </form>
         </div>
       </FormWrapper>
-    </div>
+    </FlexWrapper>
   );
 };
 

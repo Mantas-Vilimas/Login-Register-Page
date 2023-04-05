@@ -1,18 +1,31 @@
+// --------HOOKS-----------
 import { useEffect, useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
+import { getUser } from "../../services/getUser";
+
+// --------COMPONENTS-----------
 import Button from "../../components/Button/Button";
 import FormWrapper from "../../components/FormWrapper/FormWrapper";
 import Heading from "../../components/Heading/Heading";
-import styles from "./HomePage.module.css";
-import { getUser } from "../../services/getUser";
 import Spinner from "../../components/Spinner/Spinner";
+import FlexWrapper from "../../components/FlexWrapper/FlexWrapper";
+import Paragraph from "../../components/FlexWrapper/Paragraph/Paragraph";
+
+// --------STYLE-----------
+import styles from "./HomePage.module.css";
 import image from "./home.png";
+import Confetti from "react-confetti";
 
 const HomePage = ({ logOut, token }) => {
   const [userData, setUserData] = useState();
   const [error, setError] = useState();
   const [visibility, setVisibility] = useState();
   const [loading, setLoading] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowsSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -34,6 +47,7 @@ const HomePage = ({ logOut, token }) => {
         setUserData(userFromServer);
         setVisibility(true);
         setError("");
+        setShowConfetti(true);
       } catch (error) {
         setVisibility(false);
         setUserData("");
@@ -43,16 +57,35 @@ const HomePage = ({ logOut, token }) => {
     }
   };
 
+  const handleWindowSize = () => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
   useEffect(() => {
     showUserinfo();
   }, []);
+
+  useEffect(() => {
+    window.onresize = () => handleWindowSize();
+    showConfetti &&
+      setTimeout(() => {
+        setShowConfetti(false);
+      }, 4000);
+  }, [showConfetti]);
 
   if (!token) {
     return <Navigate to="/login" />;
   }
 
   return (
-    <div className={styles.wrapper}>
+    <FlexWrapper>
+      {showConfetti && (
+        <Confetti width={windowsSize.width} height={windowsSize.height} />
+      )}
+
       <div>
         <img className={styles.image} src={image} alt="home" />
       </div>
@@ -63,52 +96,39 @@ const HomePage = ({ logOut, token }) => {
           {loading && <Spinner />}
           {visibility ? (
             <div className={styles.container}>
-              <div>
-                <p className={styles.label}>
-                  Your Email: <span>{userData.email}</span>
-                </p>
-              </div>
-              <div>
-                <p className={styles.label}>
-                  Your First Name: <span>{userData.firstName}</span>
-                </p>
-              </div>
-
-              <div>
-                <p className={styles.label}>
-                  Your Last Name: <span>{userData.lastName}</span>{" "}
-                </p>
-              </div>
-              <div>
-                <p className={styles.label}>
-                  Your address:{""}
-                  <span>
-                    {userData.address
-                      ? `${userData.address}`
-                      : " You live in a secret place"}
-                  </span>
-                </p>
-              </div>
-              <div>
-                <p className={styles.label}>
-                  Your gender:{""}
-                  <span>
-                    {userData.gender !== "noData"
-                      ? `${userData.gender}`
-                      : "Your gender is a mystery"}
-                  </span>
-                </p>
-              </div>
-              <div>
-                <p className={styles.label}>
-                  Newsletter subscription:{""}
-                  <span>
-                    {userData.newsletter
-                      ? "You will receive newsletter"
-                      : "No newsletter for you"}
-                  </span>
-                </p>
-              </div>
+              <Paragraph label={"Your Email:"} userData={userData.email} />
+              <Paragraph
+                label={"Your First Name:"}
+                userData={userData.firstName}
+              />
+              <Paragraph
+                label={"Your Last Name:"}
+                userData={userData.lastName}
+              />
+              <Paragraph
+                label={"Your Address:"}
+                userData={
+                  userData.address
+                    ? `${userData.address}`
+                    : " You live in a secret place"
+                }
+              />
+              <Paragraph
+                label={"Your Gender:"}
+                userData={
+                  userData.gender !== "noData"
+                    ? `${userData.gender}`
+                    : "Your gender is a mystery"
+                }
+              />
+              <Paragraph
+                label={"Newsletter subscription:"}
+                userData={
+                  userData.newsletter
+                    ? "You will receive newsletter"
+                    : "No newsletter for you"
+                }
+              />
             </div>
           ) : (
             <p className={styles.error}>{error}</p>
@@ -121,7 +141,7 @@ const HomePage = ({ logOut, token }) => {
           )}
         </div>
       </FormWrapper>
-    </div>
+    </FlexWrapper>
   );
 };
 

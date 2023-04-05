@@ -1,7 +1,6 @@
 import styles from "./ProgressBar.module.css";
 
 const ProgressBar = ({ step, lastStep, error }) => {
-  console.log(error);
   return (
     <div className={styles.container}>
       <div

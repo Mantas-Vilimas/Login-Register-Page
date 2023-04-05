@@ -2,17 +2,18 @@ import { Link } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import styles from "./WelcomingPage.module.css";
 import image from "./welcoming.png";
+import FlexWrapper from "../../components/FlexWrapper/FlexWrapper";
 
 const WelcomingPage = () => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.content}>
-        <div className={styles.typewriter}>
-          <h1 className={styles.heading}> Welcome to my app</h1>
-        </div>
+      <FlexWrapper>
+        <FlexWrapper>
+          <h1 className={styles.typewriter}> Welcome to my app</h1>
+        </FlexWrapper>
 
         <p className={styles.message}>
-          You need to login/register to gain access
+          You need to login/register to see the magic!
         </p>
         <div className={styles.container}>
           <Link className="entry-link" to={routes.loginPage}>
@@ -23,9 +24,10 @@ const WelcomingPage = () => {
             Register
           </Link>
         </div>
-      </div>
+      </FlexWrapper>
+
       <div>
-        <img className={styles.image} src={image} />
+        <img className={styles.image} src={image} alt="people" />
       </div>
     </div>
   );
