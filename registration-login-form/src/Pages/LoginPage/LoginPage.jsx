@@ -75,7 +75,6 @@ const LoginPage = ({ onLogin }) => {
                 setLoginError(
                   "User does not exist or you entered bad credentials"
                 );
-                console.log(err);
               }
               setLoading(false);
             })}

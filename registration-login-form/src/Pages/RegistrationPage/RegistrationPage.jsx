@@ -30,7 +30,7 @@ const schema1 = yup.object({
   password: yup
     .string()
     .required("You must enter a password")
-    .min(8, "Password should be at least 8 characters")
+    .min(6, "Password should be at least 6 characters")
     .matches(RegExp("(.*[a-z].*)"), "Password must have lowercase")
     .matches(RegExp("(.*[A-Z].*)"), "Password must have uppercase")
     .matches(RegExp("(.*\\d.*)"), "Password must have number")
@@ -41,7 +41,7 @@ const schema1 = yup.object({
   repeatPassword: yup
     .string("Password should be a string")
     .oneOf([yup.ref("password")], "Passwords must match")
-    .required("Confirm password is required"),
+    .required("Repeat password is required"),
 });
 
 const schema2 = yup.object({
