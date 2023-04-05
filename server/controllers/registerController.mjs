@@ -13,14 +13,16 @@ export const registerController = async (req, res) => {
     terms,
     newsletter,
   } = req.body;
-  const isEmailValid = typeof email === "string";
-  const isPasswordValid = typeof password === "string";
-  const isFirstNameValid = typeof firstName == "string";
-  const isLastNameValid = typeof lastName === "string";
+  const isEmailValid = typeof email === "string" && email.length > 3;
+  const isPasswordValid = typeof password === "string" && password.length > 6;
+  const isFirstNameValid = typeof firstName == "string" && firstName.length > 1;
+  const isLastNameValid = typeof lastName === "string" && lastName.length > 1;
   const isAddressValid = typeof address === "string";
   const isGenderValid = typeof gender === "string";
   const isTermsValid = typeof terms === "boolean";
   const isNewsletterValid = typeof newsletter === "boolean";
+
+  console.log(email.length);
 
   if (
     !isEmailValid ||
