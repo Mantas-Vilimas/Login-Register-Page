@@ -18,7 +18,7 @@ import FlexWrapper from "../../components/FlexWrapper/FlexWrapper";
 
 // --------STYLE-----------
 import styles from "./LoginPage.module.css";
-import image from "./login.png";
+import image from "../../assets/images/login.png";
 
 const schema = yup.object({
   email: yup

@@ -1,4 +1,5 @@
 import "./App.css";
+import "./assets/global.css";
 
 import Layout from "./components/Layout/Layout";
 import HomePage from "./Pages/HomePage/HomePage";

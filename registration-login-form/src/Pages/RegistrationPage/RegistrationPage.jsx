@@ -20,7 +20,7 @@ import FlexWrapper from "../../components/FlexWrapper/FlexWrapper";
 
 // --------Styles-----------
 import styles from "./RegistrationPage.module.css";
-import image from "./register.png";
+import image from "../../assets/images/register.png";
 
 const schema1 = yup.object({
   email: yup

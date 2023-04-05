@@ -5,14 +5,13 @@
 .message {
     color: white;
     margin: 20px 0;
-    font-family: monospace, arial;
 }
 
 .typewriter {
     font-size: 42px;
     color: #fff;
     overflow: hidden; 
-    border-right: .15em solid #E87A00;
+    border-right: .15em solid var(--secondary-color);
     white-space: nowrap; 
     margin: 0 auto; 
     letter-spacing: .15em; 
@@ -28,11 +27,11 @@
   
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: #E87A00 }
+    50% { border-color: var(--secondary-color) }
   }
 
   .container {
-    color: white;
+    color: var(--white-color)
   }
 
   .image {
@@ -52,8 +51,4 @@
         flex-direction: column;
         gap: 50px
       }
-
-      /* .typewriter h1 {
-        white-space: break-spaces; 
-      } */
   }

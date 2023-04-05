@@ -13,7 +13,7 @@ import Paragraph from "../../components/FlexWrapper/Paragraph/Paragraph";
 
 // --------STYLE-----------
 import styles from "./HomePage.module.css";
-import image from "./home.png";
+import image from "../../assets/images/home.png";
 import Confetti from "react-confetti";
 
 const HomePage = ({ logOut, token }) => {

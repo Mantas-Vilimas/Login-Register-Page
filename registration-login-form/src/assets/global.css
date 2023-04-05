@@ -1,0 +1,18 @@
+:root {
+    --main-bg-color: #023047;
+    --primary-color: #219ebc;
+    --secondary-color: #fb8500;
+    --secondary-faded-color: #884d09;
+    --white-color: rgb(250, 249, 246);
+    --border-radius: 10px;
+    --error-color: red;
+    --button-size: 120px
+   
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace, arial;
+  }

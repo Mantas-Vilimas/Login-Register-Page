@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import styles from "./WelcomingPage.module.css";
-import image from "./welcoming.png";
+import image from "../../assets/images/welcoming.png";
 import FlexWrapper from "../../components/FlexWrapper/FlexWrapper";
 
 const WelcomingPage = () => {
