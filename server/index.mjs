@@ -26,9 +26,9 @@ app.use((req, _, next) => {
 app.use(bodyParser);
 app.use(corsMiddleware);
 
-app.get("/home", listController);
-app.post("/register", registerController);
-app.post("/login", loginController);
+app.get("/api/home", listController);
+app.post("/api/register", registerController);
+app.post("/api/login", loginController);
 
 app.listen(port, () => {
   console.log(` App listening on port ${port}`);
